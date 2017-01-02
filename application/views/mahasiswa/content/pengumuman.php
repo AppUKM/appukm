@@ -17,12 +17,11 @@
                         t_pendaftaran.pendaftaran_tahun AS pendaftaran_tahun,
                         t_mahasiswa.mhs_npm AS mhs_npm,
                         t_mahasiswa.mhs_nama AS mhs_nama,
-                        t_ukm.ukm_id AS ukm_id,
-                        t_ukm.ukm_nama AS ukm_nama
+                        t_ukm.ukm_nama AS ukm_nama,
+                        t_ukm.ukm_id AS ukm_id
                         FROM t_pendaftaran
                         LEFT JOIN t_mahasiswa ON t_mahasiswa.mhs_npm = t_pendaftaran.mhs_npm
-                        LEFT JOIN t_ukm ON t_ukm.ukm_id = t_pendaftaran.ukm_id
-                         = t_pendaftaran.mhs_npm WHERE t_pendaftaran.mhs_npm ='$npm' ORDER BY pendaftaran_tahun ");
+                        LEFT JOIN t_ukm ON t_ukm.ukm_id = t_pendaftaran.ukm_id WHERE t_pendaftaran.mhs_npm ='$npm' ORDER BY pendaftaran_tahun ");
                                  foreach ($query->result() as $row){ 
                             ?>
                             <?php if($row->pendaftaran_status == '?'){ ?>
